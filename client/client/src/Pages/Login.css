@@ -1,0 +1,12 @@
+.login-page {
+  background: linear-gradient(to right, #f7faff, #e0efff);
+  min-height: 100vh;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: #0d6efd;
+}

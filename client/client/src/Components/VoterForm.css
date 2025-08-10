@@ -1,0 +1,48 @@
+.voter-form-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.voter-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.voter-form-container div {
+  margin-bottom: 15px;
+}
+
+.voter-form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.voter-form-container input,
+.voter-form-container select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.voter-form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Match your theme, e.g., Header button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.voter-form-container button:hover {
+  background-color: #0056b3; /* Hover effect matching theme */
+}
