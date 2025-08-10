@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Candidates.css'; // Ensure this file exists
+import './Candidates.css';
 
 const Candidates = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
     party: '',
     constituency: '',
     candidateId: '',
   });
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+
+  const token = localStorage.getItem('token');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,27 +21,41 @@ const Candidates = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.fullName || !formData.party || !formData.constituency || !formData.candidateId) {
+    console.log('Submitting formData:', formData);
+
+    // Validation check
+    if (
+      !formData.name.trim() ||
+      !formData.party.trim() ||
+      !formData.constituency.trim() ||
+      !formData.candidateId.trim()
+    ) {
       alert('All fields are required');
       return;
     }
 
     try {
-      await axios.post(`${'http://localhost:5000/api/candidates'}`, formData, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      });
+      await axios.post(
+        'http://localhost:5000/api/candidates',
+        formData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       alert('Candidate registered successfully');
-      setFormData({ fullName: '', party: '', constituency: '', candidateId: '' }); // Reset form
-      fetchCandidates(); // Refresh the list
+      setFormData({ name: '', party: '', constituency: '', candidateId: '' });
+      fetchCandidates();
     } catch (err) {
+      console.error('Error creating candidate:', err.response || err);
       alert(err.response?.data?.message || 'Failed to register candidate');
     }
   };
 
   const fetchCandidates = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/candidates`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await axios.get(`${apiUrl}/api/candidates`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
       setCandidates(response.data);
     } catch (err) {
@@ -68,12 +82,12 @@ const Candidates = () => {
               <h4 className="mb-3">Add New Candidate</h4>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Full Name</label>
+                  <label className="form-label">Name</label>
                   <input
                     type="text"
                     className="form-control"
-                    name="fullName"
-                    value={formData.fullName}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                   />
@@ -118,17 +132,36 @@ const Candidates = () => {
             </div>
           </div>
         </div>
+
         <div className="col-md-8">
           <h4 className="mb-3">Candidate List</h4>
           <table className="table table-striped">
             <thead>
               <tr>
-                <th>Full Name</th>
+                <th>Name</th>
                 <th>Party</th>
                 <th>Constituency</th>
                 <th>Candidate ID</th>
               </tr>
             </thead>
+            <tbody>
+              {candidates.length > 0 ? (
+                candidates.map((candidate) => (
+                  <tr key={candidate._id || candidate.candidateId}>
+                    <td>{candidate.name}</td>
+                    <td>{candidate.party}</td>
+                    <td>{candidate.constituency}</td>
+                    <td>{candidate.candidateId}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4" className="text-center">
+                    No candidates found.
+                  </td>
+                </tr>
+              )}
+            </tbody>
           </table>
         </div>
       </div>
@@ -136,4 +169,4 @@ const Candidates = () => {
   );
 };
 
-export default Candidates;
+export default Candidates;    

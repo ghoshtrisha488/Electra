@@ -35,7 +35,8 @@ const authenticateToken = (req, res, next) => {
 // ================== Import Routes ==================
 const authRoute = require('./routes/AuthRoute');
 const areaRoute = require('./routes/AreaRoute');
-const candidatesRoute = require('./routes/CandidatesRoute');
+const candidateRoutes = require('./routes/CandidateRoute');
+
 const electionRoute = require('./routes/ElectionRoutes');
 const feedbackRoute = require('./routes/FeedbackRoute');
 const reportRoute = require('./routes/ReportRoutes');
@@ -50,7 +51,7 @@ app.post('/api/voter/test', authenticateToken, (req, res) => {
 // ================== Use Routes ==================
 app.use('/api/auth', authRoute);
 app.use('/api/area', areaRoute);
-app.use('/api/candidates', candidatesRoute);
+app.use('/api/candidates', candidateRoutes);
 app.use('/api/election', electionRoute);
 app.use('/api/feedback', feedbackRoute);
 app.use('/api/report', reportRoute);

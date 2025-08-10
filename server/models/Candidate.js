@@ -11,9 +11,16 @@ const candidateSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  areaId: {
+  constituency: {
     type: String,
     required: true,
+    trim: true,
+  },
+  candidateId: {
+    type: String,
+    required: true,
+    unique: true,  // Optional: candidateId should be unique
+    trim: true,
   },
   createdAt: {
     type: Date,
@@ -21,4 +28,4 @@ const candidateSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Candidates', candidateSchema);
+module.exports = mongoose.model('Candidate', candidateSchema);   
