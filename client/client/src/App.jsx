@@ -23,6 +23,7 @@ import VoterSearch from "./Pages/VoterSearch.jsx";
 
 import Vote from "./Pages/Vote.jsx";
 import TrackApplication from "./Pages/TrackApplication.jsx";
+import VoterProfile from "./Pages/VoterProfile.jsx";
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/search" element={<VoterSearch />} />
           <Route path="/vote" element={<Vote />} />
           <Route path="/track-application" element={<TrackApplication />} />
+          <Route path="/voter-profile" element={<VoterProfile />} />
 
         </Route>
       </Routes>

@@ -1,0 +1,26 @@
+.voter-profile-page {
+  background-color: #f8f9fa;
+  min-height: 80vh;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+img {
+  border-radius: 5px;
+}

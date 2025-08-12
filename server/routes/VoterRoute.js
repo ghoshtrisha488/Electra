@@ -89,5 +89,10 @@ router.get("/search", async (req, res) => {
   }
 });
 
+
+// ... Existing routes ...
+
+router.get('/voter/:voterId/e-voter-card',downloadEVoterCard); // Download e-Voter Card route
+
 module.exports = router;
 

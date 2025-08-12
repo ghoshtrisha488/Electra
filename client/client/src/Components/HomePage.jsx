@@ -7,7 +7,7 @@ const services = [
   { title: 'Track Your Application', color: 'border-warning', icon: '📍', path: '/track-application' },
   { title: 'Voter Card Complaints', color: 'border-info', icon: '📣', path: '/complaints' },
   { title: 'Search Your Name in Voter List', color: 'border-success', icon: '🔍', path: '/search' },
-  { title: 'Download e-Voter Card (E-EPIC)', color: 'border-pink', icon: '💳', path: '/epic' },
+  { title: 'Download e-Voter Card (E-EPIC)', color: 'border-pink', icon: '💳', path: '/voter-profile' },
   { title: 'Book a Call With BLO', color: 'border-warning', icon: '📞', path: '/blo' },
   { title: 'Divyang (Saksham)', color: 'border-info', icon: '♿', path: '/divyang' },
   { title: 'Learning Material', color: 'border-success', icon: '📚', path: '/learn' },
