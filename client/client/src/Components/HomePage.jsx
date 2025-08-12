@@ -10,9 +10,9 @@ const services = [
   { title: 'Download e-Voter Card (E-EPIC)', color: 'border-pink', icon: '💳', path: '/voter-profile' },
   { title: 'Book a Call With BLO', color: 'border-warning', icon: '📞', path: '/blo' },
   { title: 'Divyang (Saksham)', color: 'border-info', icon: '♿', path: '/divyang' },
-  { title: 'Learning Material', color: 'border-success', icon: '📚', path: '/learn' },
+  { title: 'Learning Material', color: 'border-success', icon: '📚', path: '/learning-material' },
   { title: 'Know Your BLO', color: 'border-warning', icon: '🧑‍💼', path: '/know-blo' },
-  { title: 'Election Schedule', color: 'border-success', icon: '🗓️', path: '/schedule' },
+  { title: 'Election Schedule', color: 'border-success', icon: '🗓️', path: '/election' },
   { title: 'Booth Information', color: 'border-pink', icon: '🏛️', path: '/booth-info' },
   { title: 'Helpline Numbers', color: 'border-info', icon: '☎️', path: '/helpline' },
 ];
