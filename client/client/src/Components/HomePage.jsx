@@ -4,7 +4,7 @@ import './HomePage.css';
 
 const services = [
   { title: 'Voter Registration Forms', color: 'border-pink', icon: '📝', path: '/voter-registration' },
-  { title: 'Track Your Application', color: 'border-warning', icon: '📍', path: '/track' },
+  { title: 'Track Your Application', color: 'border-warning', icon: '📍', path: '/track-application' },
   { title: 'Voter Card Complaints', color: 'border-info', icon: '📣', path: '/complaints' },
   { title: 'Search Your Name in Voter List', color: 'border-success', icon: '🔍', path: '/search' },
   { title: 'Download e-Voter Card (E-EPIC)', color: 'border-pink', icon: '💳', path: '/epic' },

@@ -3,8 +3,10 @@ const router = express.Router();
 const voteController = require('../controllers/VoteController');
 const authMiddleware = require('../middleware/AuthMiddleware');
 
-// Protected routes
-router.get('/vote', authMiddleware, voteController.getVotes); // Admin only
-router.post('/vote', authMiddleware, voteController.castVote); // Voter only
+// Admin: Get all votes
+router.get('/', authMiddleware, voteController.getVotes);
+
+// Voter: Cast a vote
+router.post('/', authMiddleware, voteController.castVote);
 
 module.exports = router;
