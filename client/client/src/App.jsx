@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/voter-registration" element={<VoterRegistrationForm />} />
           <Route path="/search" element={<VoterSearch />} />
           <Route path="/vote" element={<Vote />} />
-          
+
         </Route>
       </Routes>
 

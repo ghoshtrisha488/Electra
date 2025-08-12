@@ -14,7 +14,7 @@ const Vote = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await axios.get(`${'http://localhost:5000/api/vote'}/api/candidates/${electionId}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/candidates/${electionId}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setCandidates(response.data);
@@ -32,7 +32,7 @@ const Vote = () => {
       return;
     }
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/vote`, {
+      await axios.post(`${'http://localhost:5000/api/vote'}/api/vote`, {
         candidateId: selectedCandidate,
         electionId,
       }, {
@@ -55,7 +55,7 @@ const Vote = () => {
           <label className="form-label">Select Candidate</label>
           <select className="form-control" value={selectedCandidate} onChange={(e) => setSelectedCandidate(e.target.value)} required>
             <option value="">-- Choose Candidate --</option>
-            {candidates.map(candidate => (
+            {(candidate => (
               <option key={candidate.id} value={candidate.id}>
                 {candidate.fullName} ({candidate.party})
               </option>
